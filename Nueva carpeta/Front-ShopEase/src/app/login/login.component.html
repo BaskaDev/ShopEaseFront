@@ -1,0 +1,35 @@
+<div class="example-card">
+    <div class="form-container">
+        <form class="example-form">
+            <mat-card-header>
+                <div mat-card-avatar class="img"></div>
+                <mat-card-title style="font-weight: 600; font-size: xx-large;">
+                    ¡Bienvenido de nuevo!
+                    <img src="assets/form.png" alt="form image">
+                </mat-card-title>
+                <p>Por favor ingresa tus credenciales para iniciar sesión</p>
+            </mat-card-header>
+
+            <div class="form">
+                <mat-form-field class="form-cred">
+                    <mat-label>Correo electrónico</mat-label>
+                    <input class="input-form" matInput type="email" placeholder="Ingresa tu correo">
+                </mat-form-field>
+
+                <mat-form-field class="form-cred">
+                    <mat-label>Contraseña</mat-label>
+                    <input class="input-form" matInput type="password" placeholder="Ingresa tu contraseña">
+                </mat-form-field>
+
+                <button mat-flat-button color="primary" (click)="navMenu()"class="form-cred">Iniciar Sesión</button>
+                <p>¿No tienes una cuenta? 
+                    <button (click)="navReg()" style="font-weight: 500;">Crear una cuenta</button>
+                </p>
+            </div>
+        </form>
+
+        <div class="right-img">
+            <img src="assets/img.png" style="border-radius: 30px;" title="musulman's.kbom">
+        </div>
+    </div>
+</div>

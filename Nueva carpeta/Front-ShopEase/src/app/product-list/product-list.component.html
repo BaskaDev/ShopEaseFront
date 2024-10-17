@@ -1,0 +1,249 @@
+<div class="container">
+    <mat-card-header>
+        <div mat-card-avatar class="img"></div>
+        <mat-card-title style="font-weight: 600; font-size: xx-large;">
+            ShopEase
+            <img src="assets/form.png" alt="form image">
+        </mat-card-title>
+        <p>Compra con confianza</p>
+    </mat-card-header>
+
+        <main class="main-content">
+            <div class ="items">
+            <mat-tab-group>
+                <mat-tab label="Categoria uno">
+
+                    <table mat-table [dataSource]="dataSource"
+                        class="mat-elevation-z8">
+                        <!-- Nombre -->
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.name}} </td>
+                        </ng-container>
+
+                        <!-- Descripción -->
+                        <ng-container matColumnDef="description">
+                            <th mat-header-cell *matHeaderCellDef> Descripción
+                            </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.description}} </td>
+                        </ng-container>
+
+                        <!-- Precio -->
+                        <ng-container matColumnDef="price">
+                            <th mat-header-cell *matHeaderCellDef> Precio </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.price}} </td>
+                        </ng-container>
+
+                        <!-- Stock -->
+                        <ng-container matColumnDef="stock">
+                            <th mat-header-cell *matHeaderCellDef> Stock </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.stock}} </td>
+                        </ng-container>
+
+                        <!-- Categoría -->
+                        <ng-container matColumnDef="category">
+                            <th mat-header-cell *matHeaderCellDef> Categoría
+                            </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.category}} </td>
+                        </ng-container>
+
+                        <!-- Imagen -->
+                        <ng-container matColumnDef="image">
+                            <th mat-header-cell *matHeaderCellDef> Imagen </th>
+                            <td mat-cell *matCellDef="let product">
+                                <img [src]="product.image"
+                                    alt="Imagen del producto"
+                                    class="product-image">
+                            </td>
+                        </ng-container>
+
+                        <!-- Agregar al carrito -->
+                        <ng-container matColumnDef="addToCart">
+                            <th mat-header-cell *matHeaderCellDef> Agregar al
+                                Carrito </th>
+                            <td mat-cell *matCellDef="let product">
+                                <button mat-raised-button color="primary"
+                                    (click)="addToCart(product)">Agregar al
+                                    Carrito</button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row
+                            *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row
+                            *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                        showFirstLastButtons></mat-paginator>
+
+                </mat-tab>
+                <mat-tab label="Categoria dos">
+                    <table mat-table [dataSource]="dataSource"
+                        class="mat-elevation-z8">
+                        <!-- Nombre -->
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.name}} </td>
+                        </ng-container>
+
+                        <!-- Descripción -->
+                        <ng-container matColumnDef="description">
+                            <th mat-header-cell *matHeaderCellDef> Descripción
+                            </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.description}} </td>
+                        </ng-container>
+
+                        <!-- Precio -->
+                        <ng-container matColumnDef="price">
+                            <th mat-header-cell *matHeaderCellDef> Precio </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.price}} </td>
+                        </ng-container>
+
+                        <!-- Stock -->
+                        <ng-container matColumnDef="stock">
+                            <th mat-header-cell *matHeaderCellDef> Stock </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.stock}} </td>
+                        </ng-container>
+
+                        <!-- Categoría -->
+                        <ng-container matColumnDef="category">
+                            <th mat-header-cell *matHeaderCellDef> Categoría
+                            </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.category}} </td>
+                        </ng-container>
+
+                        <!-- Imagen -->
+                        <ng-container matColumnDef="image">
+                            <th mat-header-cell *matHeaderCellDef> Imagen </th>
+                            <td mat-cell *matCellDef="let product">
+                                <img [src]="product.image"
+                                    alt="Imagen del producto"
+                                    class="product-image">
+                            </td>
+                        </ng-container>
+
+                        <!-- Agregar al carrito -->
+                        <ng-container matColumnDef="addToCart">
+                            <th mat-header-cell *matHeaderCellDef> Agregar al
+                                Carrito </th>
+                            <td mat-cell *matCellDef="let product">
+                                <button mat-raised-button color="primary"
+                                    (click)="addToCart(product)">Agregar al
+                                    Carrito</button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row
+                            *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row
+                            *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                        showFirstLastButtons></mat-paginator>
+
+                </mat-tab>
+                <mat-tab label="Categoria tres">
+                    <table mat-table [dataSource]="dataSource"
+                        class="mat-elevation-z8">
+                        <!-- Nombre -->
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.name}} </td>
+                        </ng-container>
+
+                        <!-- Descripción -->
+                        <ng-container matColumnDef="description">
+                            <th mat-header-cell *matHeaderCellDef> Descripción
+                            </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.description}} </td>
+                        </ng-container>
+
+                        <!-- Precio -->
+                        <ng-container matColumnDef="price">
+                            <th mat-header-cell *matHeaderCellDef> Precio </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.price}} </td>
+                        </ng-container>
+
+                        <!-- Stock -->
+                        <ng-container matColumnDef="stock">
+                            <th mat-header-cell *matHeaderCellDef> Stock </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.stock}} </td>
+                        </ng-container>
+
+                        <!-- Categoría -->
+                        <ng-container matColumnDef="category">
+                            <th mat-header-cell *matHeaderCellDef> Categoría
+                            </th>
+                            <td mat-cell *matCellDef="let product">
+                                {{product.category}} </td>
+                        </ng-container>
+
+                        <!-- Imagen -->
+                        <ng-container matColumnDef="image">
+                            <th mat-header-cell *matHeaderCellDef> Imagen </th>
+                            <td mat-cell *matCellDef="let product">
+                                <img [src]="product.image"
+                                    alt="Imagen del producto"
+                                    class="product-image">
+                            </td>
+                        </ng-container>
+
+                        <!-- Agregar al carrito -->
+                        <ng-container matColumnDef="addToCart">
+                            <th mat-header-cell *matHeaderCellDef> Agregar al
+                                Carrito </th>
+                            <td mat-cell *matCellDef="let product">
+                                <button mat-raised-button color="primary"
+                                    (click)="addToCart(product)">Agregar al
+                                    Carrito</button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row
+                            *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row
+                            *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                        showFirstLastButtons></mat-paginator>
+
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        
+            <div class="right" ngSkipHydration>
+                <div class="image-section">
+                    <img src="assets/img.png" alt="Imagen de bienvenida" class="welcome-image">
+                </div>
+                <div class="button-container">
+                    <button mat-raised-button color="accent" class="finalizar-compra" (click)="finalizarCompra()">
+                        Finalizar Compra
+                    </button>
+                </div>
+            </div>
+
+        </main>
+       
+          
+
+        <footer class="footer">
+            <p>Contáctanos para soporte</p>
+        </footer>
+    </div>
