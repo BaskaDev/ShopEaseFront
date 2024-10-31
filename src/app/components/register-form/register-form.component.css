@@ -1,0 +1,138 @@
+/* Ajusta los estilos de la tarjeta (mat-card) */
+.example-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    text-align: center;  
+    width: 100%;
+    max-width: 1400px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 10px;  
+    box-sizing: border-box; 
+}
+
+/* Centra el contenido en el mat-card-header */
+mat-card-header {
+    display: flex;
+    flex-direction: column; 
+    align-items: normal; 
+}
+
+/* Contenedor de formulario e imagen */
+.form-container {
+    display: flex;
+    justify-content: center; 
+    align-items: stretch; /* Asegura que ambos elementos tengan la misma altura */
+    width: 100%; 
+    margin-top: 20px; 
+}
+
+/* Formulario */
+.example-form {
+    display: flex; 
+    flex-direction: column; 
+    padding: 4%;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+/* Estilo para el párrafo */
+p {
+    margin: 10px 0 3%; 
+}
+
+/* Resto del CSS permanece igual... */
+.form-cred {
+    width: 60%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    margin: auto; 
+}
+
+.example-full-width {
+    width: 100%; 
+}
+
+table {
+    width: 100%; 
+    margin: 0 auto;
+}
+
+td {
+    padding-right: 8px; 
+}
+
+mat-form-field {
+    width: 100%; 
+}
+
+/* Estilo para la imagen */
+.right-img {
+   
+    display: block; /* Block par el margen correcto */
+    margin-top: 5%; /* Baja la imagen un 3% */
+    height: auto; /* Mantiene la relación de aspecto de la imagen */
+    max-height: 100%; /* Asegura que la imagen no exceda la altura del contenedor */
+    border-radius: 30px;
+}
+
+@media (max-width: 1024px) {
+    .example-form {
+        padding: 20px;
+    }
+    
+    table {
+        width: 100%;
+    }
+    
+    td {
+        display: block; 
+        width: 100%;
+        padding-right: 0; 
+    }
+    
+    tr {
+        display: flex;
+        flex-direction: column; 
+    }
+}
+
+@media (max-width: 600px) {
+    .example-card {
+        padding: 10px; 
+    }
+
+    .example-form {
+        padding: 10px;
+    }
+    
+    table {
+        width: 100%; 
+    }
+
+    td {
+        display: block; 
+        width: 100%;    
+        padding-right: 0; 
+        margin-bottom: 10px; 
+    }
+
+    tr {
+        display: block; 
+    }
+    
+    .right-img {
+        display: none; 
+    }
+}
+
+button {
+    width: 100%;
+    height: 15%;
+    border-radius: 20px;
+}

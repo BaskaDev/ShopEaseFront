@@ -1,0 +1,79 @@
+<div class="container" > <!-- Aplicar aquí -->
+  <mat-card-header>
+    <div mat-card-avatar class="img"></div>
+    <mat-card-title style="font-weight: 600; font-size: xx-large;">
+      ShopEase
+      <img src="assets/form.png" alt="form image">
+    </mat-card-title>
+    <p>Compra con confianza</p>
+  </mat-card-header>
+
+  <main class="main-content">
+    <div class="items">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Lista de Productos</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="fill">
+            <mat-label>Selecciona una categoría</mat-label>
+            <mat-select (selectionChange)="onCategoryChange($event)">
+              <mat-option value="">Todas las categorías</mat-option>
+              <mat-option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+          <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+              <mat-cell *matCellDef="let producto"> {{ producto.nombre }} </mat-cell>
+            </ng-container>
+      
+            <ng-container matColumnDef="precio">
+              <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
+              <mat-cell *matCellDef="let producto"> {{ producto.precio | currency }} </mat-cell>
+            </ng-container>
+      
+            <ng-container matColumnDef="descripcion">
+              <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+              <mat-cell *matCellDef="let producto"> {{ producto.descripcion }} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="imagen">
+              <mat-header-cell *matHeaderCellDef> Imagen </mat-header-cell>
+              <mat-cell *matCellDef="let producto"> {{ producto.imagen_url }} </mat-cell>
+            </ng-container>
+      
+            <ng-container matColumnDef="action">
+              <mat-header-cell *matHeaderCellDef> Acción </mat-header-cell>
+              <mat-cell *matCellDef="let producto">
+                <button mat-button (click)="addToCart(producto)">Añadir al carrito</button>
+              </mat-cell>
+            </ng-container>
+      
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    
+    <div class="right">
+      <div class="image-section">
+        <img src="assets/img.png" alt="Imagen de bienvenida" class="welcome-image">
+      </div>
+      <div class="button-container">
+        <button mat-raised-button class="finalizar-compra" (click)="finalizarCompra()">Finalizar Compra
+
+        </button>
+         
+       
+      </div>
+    </div>
+
+  </main>
+     
+  <footer class="footer">
+    <p>Contáctanos para soporte</p>
+  </footer>
+</div>

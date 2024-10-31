@@ -1,0 +1,142 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    min-height: 100vh;
+}
+
+.header {
+    background-color: rgb(206, 206, 211);
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.items {
+    background-color: rgb(251, 251, 251);
+    width: 100%;
+    max-width: 1200px; /* Ajusta este valor según sea necesario */
+    margin: 0 auto; /* Centra la tabla */
+    padding: 10px; /* Espaciado alrededor de la tabla */
+}
+
+h1 {
+    color: black;
+    padding-left: 5%;
+    text-align: justify;
+}
+
+.main-content {
+    background-color: white;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 5%;
+}
+
+.welcome-image {
+    width: 300px; 
+    height: auto;
+    padding-right: 5%;
+}
+
+.finalizar-compra {
+    background-color: rgb(0, 0, 255) !important; /* Para asegurar que se aplique el color azul */
+    color: white !important;
+}
+
+.product-image {
+    height: auto;
+    display: block;
+    margin: 0 auto; 
+}
+
+.footer {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.mat-card-header {
+    background-color: white;
+}
+
+.mat-tab-group {
+    background-color: white;
+}
+
+.mat-table {
+    width: 100%; /* Asegura que la tabla ocupe todo el ancho */
+}
+
+/* Ajustar el tamaño vertical de las celdas */
+.mat-header-cell, .mat-cell {
+    padding: 40px 16px; /* Aumenta el padding para mayor espacio en las celdas */
+    text-align: left; /* Alinear el texto a la izquierda */
+    min-height: 300px; /* Aumenta la altura mínima de las celdas */
+}
+
+/* Estilos adicionales para el cabezal de la tabla */
+.mat-header-cell {
+    font-weight: bold; /* Negrita para el encabezado */
+    background-color: rgb(240, 240, 240); /* Color de fondo para el encabezado */
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    .items {
+        max-width: 95%; /* Ancho máximo en pantallas pequeñas */
+        padding: 0; /* Elimina padding en la tabla para mayor espacio */
+    }
+
+    .mat-header-cell, .mat-cell {
+        padding: 50px 12px; /* Aumenta el padding vertical para mayor espacio */
+        min-height: 350px; /* Aumenta la altura mínima de las celdas en móviles */
+        font-size: 1.8em; /* Aumenta el tamaño de la fuente para mejor legibilidad */
+    }
+
+    .main-content {
+        flex-direction: column; /* Apilar elementos verticalmente en móviles */
+        padding-left: 0; /* Eliminar padding en dispositivos móviles */
+        padding-right: 0; /* Eliminar padding en dispositivos móviles */
+    }
+
+    .welcome-image {
+        width: 100%; /* Hacer la imagen de bienvenida más ancha en móviles */
+        max-width: 300px; /* Limitar el ancho máximo */
+        height: auto; /* Mantener la proporción */
+    }
+}
+
+/* Estilos para ajustar el contenido de las columnas en móviles */
+@media (max-width: 768px) {
+    .mat-cell {
+        display: flex; /* Usar flexbox para distribuir el contenido */
+        flex-direction: column; /* Apilar contenido verticalmente */
+        align-items: flex-start; /* Alinear a la izquierda */
+        justify-content: center; /* Centrar contenido verticalmente */
+    }
+
+    /* Ajustar imágenes y texto en las celdas */
+    .mat-cell img {
+        max-width: 100%; /* Asegura que las imágenes no sobrepasen el ancho de la celda */
+        height: auto; /* Mantener la proporción */
+        margin-bottom: 10px; /* Espaciado debajo de la imagen */
+    }
+
+    .mat-cell span {
+        margin: 5px 0; /* Espaciado entre líneas de texto */
+    }
+}

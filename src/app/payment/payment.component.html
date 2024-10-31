@@ -1,0 +1,82 @@
+<div class="container" > <!-- Aplicar aquí -->
+    <mat-card-header>
+      <div mat-card-avatar class="img"></div>
+      <mat-card-title style="font-weight: 600; font-size: xx-large;">
+        ShopEase
+        <img src="assets/form.png" alt="form image">
+      </mat-card-title>
+      <p>Compra con confianza</p>
+    </mat-card-header>
+
+      <div class="content-wrapper">
+    <!-- Panel de Pago -->
+    <mat-card class="payment-panel">
+        <mat-card-header>
+          <mat-card-title>Datos de Pago</mat-card-title>
+        </mat-card-header>
+        <mat-card-content [formGroup]="paymentForm">
+          <p><strong>Total a Pagar:</strong> ${{ precioFinal }}</p>
+      
+          <!-- Tipo de Pago -->
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Tipo de Pago</mat-label>
+            <mat-select formControlName="paymentType">
+              <mat-option value="credit">Tarjeta de Crédito</mat-option>
+              <mat-option value="debit">Tarjeta de Débito</mat-option>
+              <mat-option value="paypal">PayPal</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+          <!-- Número de Pago -->
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Número de Pago</mat-label>
+            <input matInput type="text" formControlName="paymentNumber" placeholder="Número de tarjeta o cuenta">
+          </mat-form-field>
+      
+          <!-- Es regalo -->
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>¿Es un regalo?</mat-label>
+            <mat-select formControlName="isGift">
+              <mat-option value="yes">Sí</mat-option>
+              <mat-option value="no">No</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+          <!-- Envío prioritario -->
+          <mat-checkbox formControlName="priorityShipping">Deseo envío prioritario</mat-checkbox>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="submitPayment()">Pagar</button>
+        </mat-card-actions>
+      </mat-card>
+      
+      <!-- Diálogo de confirmación -->
+    
+      
+      
+ 
+  
+    <main class="main-content">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Carrito</mat-card-title>
+          </mat-card-header>
+          <mat-card-content style="width: 500px;">
+            <mat-label>Productos Seleccionados</mat-label>
+            @for (producto of productos; track producto.nombre){
+            <mat-list >
+                <mat-list-item> {{ producto.nombre }}  - ${{ producto.precio }}
+                    <button mat-stroked-button color="warn">Eliminar</button>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </mat-list> 
+        }
+            
+         </mat-card-content>
+        </mat-card>
+      </main>
+       
+    <footer class="footer">
+      <p>Contáctanos para soporte</p>
+    </footer>
+  </div>
