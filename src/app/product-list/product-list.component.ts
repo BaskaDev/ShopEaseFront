@@ -27,24 +27,26 @@ import { ProductService } from '../product.service'; // Asegúrate de que la rut
 })
 export class ProductosComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['nombre', 'precio', 'descripcion','imagen','action'];
+  displayedColumns: string[] = ['nombre', 'precio', 'descripcion', 'imagen', 'action'];
   dataSource = new MatTableDataSource<ProductoModel>();
-
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
 
-
   categorias: string[] = [];
-  productos: ProductoModel[] = [];
+  productosMap = new Map<string, ProductoModel[]>(); // Map para productos agrupados por categoría
   selectedCategory: string = '';
 
-  constructor(private productService: ProductService
-    , private route: Router) { }
+  constructor(private productService: ProductService, private route: Router) {}
 
   ngOnInit() {
     this.productService.getProducts().subscribe(data => {
-      this.productos = data;
-      this.dataSource.data = this.productos;
-      this.categorias = [...new Set(this.productos.map(p => p.categoria))];
+      // Guardar los productos agrupados por categoría en el Map
+      this.productosMap = data;
+
+      // Obtener las categorías únicas del Map
+      this.categorias = Array.from(this.productosMap.keys());
+
+      // Convertir el Map en un array plano de productos para inicializar el dataSource
+      this.dataSource.data = Array.from(this.productosMap.values()).flat();
     }, error => {
       console.error('Error al obtener productos:', error);
     });
@@ -53,13 +55,20 @@ export class ProductosComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     // Asegúrate de que el paginador se establezca después de que la vista se haya inicializado
     if (this.paginator) {
-      this.dataSource.paginator = this.paginator; 
+      this.dataSource.paginator = this.paginator;
     }
   }
 
   onCategoryChange(event: MatSelectChange): void {
     const category = event.value;
-    this.dataSource.data = category ? this.productos.filter(p => p.categoria === category) : this.productos;
+    if (category) {
+      // Filtrar productos de la categoría seleccionada
+      this.dataSource.data = this.productosMap.get(category) || [];
+    } else {
+      // Mostrar todos los productos si no se selecciona ninguna categoría
+      this.dataSource.data = Array.from(this.productosMap.values()).flat();
+    }
+    
     if (this.paginator) {
       this.paginator.firstPage(); // Regresar a la primera página al filtrar
     }
@@ -67,13 +76,13 @@ export class ProductosComponent implements OnInit, AfterViewInit {
 
   addToCart(product: ProductoModel): void {
     console.log(`${product.nombre} añadido al carrito`);
-    
     this.productService.saveCart(product);
   }
 
   finalizarCompra(): void {
     console.log('Compra finalizada');
-    
     this.route.navigate(['payment']);
   }
 }
+
+
